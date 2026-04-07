@@ -1,0 +1,292 @@
+.card-screen {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  min-height: 100dvh;
+  background: var(--bg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+.card-blob-1 {
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 45, 85, 0.14);
+  top: -60px;
+  right: -60px;
+  animation: float 6s ease-in-out infinite;
+}
+.card-blob-2 {
+  width: 280px;
+  height: 280px;
+  background: rgba(155, 45, 255, 0.1);
+  bottom: 80px;
+  left: -60px;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+/* Top bar */
+.card-topbar {
+  position: relative;
+  z-index: 1;
+  padding: 52px 24px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.type-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.truth-badge {
+  background: rgba(77, 100, 255, 0.2);
+  border: 1.5px solid rgba(77, 100, 255, 0.5);
+  color: #7b9fff;
+}
+
+.dare-badge {
+  background: rgba(255, 45, 85, 0.2);
+  border: 1.5px solid rgba(255, 45, 85, 0.5);
+  color: var(--red);
+}
+
+.card-player-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 6px 14px 6px 8px;
+}
+
+.card-player-emoji {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.card-player-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Card body */
+.card-body {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+}
+
+.question-card {
+  width: 100%;
+  border-radius: 28px;
+  padding: 0 0 28px 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.92) translateY(16px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  position: relative;
+}
+
+.question-card.card-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.truth-card {
+  background: linear-gradient(160deg, #0f0f2e 0%, #13132a 100%);
+  border: 1.5px solid #3a3a6e;
+  box-shadow: 0 20px 60px rgba(0, 0, 80, 0.6), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.dare-card {
+  background: linear-gradient(160deg, #200815 0%, #180510 100%);
+  border: 1.5px solid rgba(255, 45, 85, 0.4);
+  box-shadow: var(--glow-red), 0 20px 60px rgba(255, 45, 85, 0.2);
+}
+
+/* Card top accent strip */
+.card-accent {
+  height: 5px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.truth-accent {
+  background: linear-gradient(90deg, #4d64ff, #9b2dff, #4d64ff);
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+.dare-accent {
+  background: linear-gradient(90deg, var(--red), var(--pink), var(--red));
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  box-shadow: 0 0 20px rgba(255, 45, 85, 0.6);
+}
+
+.card-type-icon {
+  font-size: 56px;
+  text-align: center;
+  line-height: 1;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+
+.card-type-label {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  margin-bottom: 24px;
+}
+
+.truth-label {
+  color: #7b9fff;
+}
+
+.dare-label {
+  color: var(--red);
+}
+
+.card-text {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text);
+  text-align: center;
+  padding: 0 24px;
+  margin-bottom: 28px;
+}
+
+/* Addressed to footer */
+.card-addressed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  margin: 0 20px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.card-addressed-emoji {
+  font-size: 20px;
+}
+
+.card-addressed-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Action buttons */
+.card-actions {
+  position: relative;
+  z-index: 1;
+  padding: 8px 20px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skip-btn {
+  width: 100%;
+  padding: 17px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.15s, background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.skip-btn:active {
+  transform: scale(0.97);
+  background: var(--surface2);
+}
+
+.skip-btn:hover {
+  border-color: rgba(155, 45, 255, 0.5);
+  color: var(--text);
+}
+
+.skip-icon {
+  font-size: 20px;
+}
+
+.done-btn {
+  width: 100%;
+  padding: 20px;
+  border-radius: 16px;
+  color: white;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-transform: uppercase;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.done-btn:active {
+  transform: scale(0.97);
+}
+
+.truth-done {
+  background: linear-gradient(135deg, #4d64ff, #9b2dff);
+  box-shadow: 0 8px 30px rgba(77, 100, 255, 0.4);
+}
+
+.dare-done {
+  background: linear-gradient(135deg, var(--red), #ff5577);
+  box-shadow: var(--glow-red), 0 8px 30px rgba(255, 45, 85, 0.4);
+}
+
+.done-icon {
+  font-size: 22px;
+}
+
+.new-game-link {
+  background: transparent;
+  color: #44445a;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px;
+  transition: color 0.2s;
+}
+
+.new-game-link:hover, .new-game-link:active {
+  color: var(--text-muted);
+}

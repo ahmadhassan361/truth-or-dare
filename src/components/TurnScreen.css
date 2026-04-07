@@ -1,0 +1,250 @@
+.turn-screen {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  min-height: 100dvh;
+  background: var(--bg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.turn-screen.is-visible {
+  opacity: 1;
+}
+
+/* Background blobs */
+.turn-bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+.turn-blob-1 {
+  width: 350px;
+  height: 350px;
+  background: rgba(255, 45, 85, 0.12);
+  top: -100px;
+  left: -100px;
+  animation: float 7s ease-in-out infinite;
+}
+.turn-blob-2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(155, 45, 255, 0.1);
+  bottom: 0;
+  right: -80px;
+  animation: float 9s ease-in-out infinite reverse;
+}
+
+/* Top bar */
+.turn-topbar {
+  position: relative;
+  z-index: 1;
+  padding: 52px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.round-badge {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 6px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.score-names {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.active-player-name {
+  color: var(--red);
+  font-size: 15px;
+}
+
+.idle-player-name {
+  color: #44445a;
+}
+
+.turn-dot {
+  color: var(--border);
+}
+
+/* Center avatar area */
+.turn-center {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  gap: 16px;
+}
+
+.avatar-ring {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: float 4s ease-in-out infinite;
+}
+
+.male-ring {
+  background: radial-gradient(circle, rgba(77, 159, 255, 0.2) 0%, transparent 70%);
+  box-shadow: 0 0 0 3px rgba(77, 159, 255, 0.3), 0 0 60px rgba(77, 159, 255, 0.2);
+}
+
+.female-ring {
+  background: radial-gradient(circle, rgba(255, 107, 157, 0.2) 0%, transparent 70%);
+  box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.3), 0 0 60px rgba(255, 107, 157, 0.2);
+}
+
+.avatar-emoji {
+  font-size: 90px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.6));
+}
+
+.turn-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.turn-name {
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.male-name {
+  color: #4d9fff;
+  text-shadow: 0 0 30px rgba(77, 159, 255, 0.5);
+}
+
+.female-name {
+  background: linear-gradient(135deg, #ff6b9d, #ff2d55);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.5));
+}
+
+.turn-subtext {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Choice section */
+.choice-section {
+  position: relative;
+  z-index: 1;
+  padding: 0 20px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.choice-prompt {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #44445a;
+}
+
+.choice-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.choice-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 28px 16px;
+  border-radius: 22px;
+  transition: transform 0.15s, box-shadow 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+.choice-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.08), transparent);
+  pointer-events: none;
+}
+
+.choice-btn:active {
+  transform: scale(0.96);
+}
+
+.truth-btn {
+  background: linear-gradient(145deg, #1a1a3e, #22224a);
+  border: 2px solid #3a3a6e;
+  box-shadow: 0 8px 32px rgba(0, 0, 50, 0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.truth-btn:active {
+  box-shadow: 0 2px 10px rgba(0, 0, 50, 0.5);
+}
+
+.dare-btn {
+  background: linear-gradient(145deg, #2d0a18, #3d1020);
+  border: 2px solid var(--red);
+  box-shadow: var(--glow-red), 0 8px 32px rgba(255, 45, 85, 0.3);
+}
+
+.dare-btn:active {
+  box-shadow: 0 2px 10px rgba(255, 45, 85, 0.3);
+}
+
+.choice-icon {
+  font-size: 48px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+}
+
+.choice-label {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--text);
+}
+
+.choice-desc {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
